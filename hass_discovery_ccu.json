@@ -60,6 +60,38 @@
                { "type": "ENERGY_COUNTER",     "entity_type": "sensor", "entity_name": "energy",    "device_class": "energy",    "unit": "Wh", "state_class": "total_increasing" }
             ]
          },
+         "HmIP-PSM-2": {
+            "0": [
+               { "type": "ACTUAL_TEMPERATURE", "entity_type": "sensor", "entity_name": "temperature", "device_class": "temperature", "unit": "°C", "enabled": false },
+               { "type": "UPDATE",             "entity_type": "update", "entity_name": "update",      "category": "diagnostic" }
+            ],
+            "3": [
+               { "type": "STATE",              "entity_type": "switch", "entity_name": "switch" }
+            ],
+            "6": [
+               { "type": "CURRENT",            "entity_type": "sensor", "entity_name": "current",   "device_class": "current",   "unit": "mA" },
+               { "type": "POWER",              "entity_type": "sensor", "entity_name": "power",     "device_class": "power",     "unit": "W"  },
+               { "type": "VOLTAGE",            "entity_type": "sensor", "entity_name": "voltage",   "device_class": "voltage",   "unit": "V"  },
+               { "type": "FREQUENCY",          "entity_type": "sensor", "entity_name": "frequency", "device_class": "frequency", "unit": "Hz" },
+               { "type": "ENERGY_COUNTER",     "entity_type": "sensor", "entity_name": "energy",    "device_class": "energy",    "unit": "Wh", "state_class": "total_increasing" }
+            ]
+         },
+         "HmIP-PSM-2 QHJ": {
+            "0": [
+               { "type": "ACTUAL_TEMPERATURE", "entity_type": "sensor", "entity_name": "temperature", "device_class": "temperature", "unit": "°C", "enabled": false },
+               { "type": "UPDATE",             "entity_type": "update", "entity_name": "update",      "category": "diagnostic" }
+            ],
+            "3": [
+               { "type": "STATE",              "entity_type": "switch", "entity_name": "switch" }
+            ],
+            "6": [
+               { "type": "CURRENT",            "entity_type": "sensor", "entity_name": "current",   "device_class": "current",   "unit": "mA" },
+               { "type": "POWER",              "entity_type": "sensor", "entity_name": "power",     "device_class": "power",     "unit": "W"  },
+               { "type": "VOLTAGE",            "entity_type": "sensor", "entity_name": "voltage",   "device_class": "voltage",   "unit": "V"  },
+               { "type": "FREQUENCY",          "entity_type": "sensor", "entity_name": "frequency", "device_class": "frequency", "unit": "Hz" },
+               { "type": "ENERGY_COUNTER",     "entity_type": "sensor", "entity_name": "energy",    "device_class": "energy",    "unit": "Wh", "state_class": "total_increasing" }
+            ]
+         },
          "HmIP-BSM": {
             "0": [
                { "type": "ACTUAL_TEMPERATURE", "entity_type": "sensor", "entity_name": "temperature", "device_class": "temperature", "unit": "°C", "enabled": false },
@@ -112,6 +144,19 @@
                { "type": "STATE",              "entity_type": "sensor",        "entity_name": "state", "value_template": "{{ [\"Geschlossen\", \"Gekippt\", \"Offen\"][value_json.v|int] }}", "icon": "mdi:door-closed", "state_class": "-" }
             ]
          },
+         "HmIP-SWD": {
+            "0": [
+               { "type": "LOW_BAT",            "entity_type": "binary_sensor", "entity_name": "battery",           "category": "diagnostic", "device_class": "battery" },
+               { "type": "SABOTAGE",           "entity_type": "binary_sensor", "entity_name": "sabotage",          "category": "diagnostic", "enabled": false },
+               { "type": "OPERATING_VOLTAGE",  "entity_type": "sensor",        "entity_name": "operating_voltage", "category": "diagnostic", "enabled": false, "device_class": "voltage", "unit": "V" },
+               { "type": "UPDATE",             "entity_type": "update",        "entity_name": "update",            "category": "diagnostic" }
+            ],
+            "1": [
+               { "type": "ALARMSTATE",              "entity_type": "binary_sensor",        "entity_name": "alarmstate", "device_class": "moisture" },
+               { "type": "MOISTURE_DETECTED",              "entity_type": "binary_sensor",        "entity_name": "moisture_detected", "device_class": "moisture" },
+               { "type": "WATERLEVEL_DETECTED",              "entity_type": "binary_sensor",        "entity_name": "waterlevel_detected", "device_class": "moisture" }
+            ]
+         },
          "HM-RC-8": {
             "1": [
                { "type": "PRESS_SHORT", "entity_type": "binary_sensor", "entity_name": "t1s_press_short" },
@@ -154,6 +199,44 @@
             "1": [
                { "type": "HUMIDITY",    "entity_type": "sensor", "entity_name": "humidity",    "availability_check": false, "unit": "%" },
                { "type": "TEMPERATURE", "entity_type": "sensor", "entity_name": "temperature", "availability_check": false, "unit": "°C" }
+            ]
+         },
+         "HM-Sec-WDS-2": {
+            "0": [
+               { "type": "LOWBAT",     "entity_type": "binary_sensor", "entity_name": "battery",     "category": "diagnostic", "device_class": "battery", "availability_check": false },
+               { "type": "UPDATE",     "entity_type": "update",        "entity_name": "update",      "category": "diagnostic" }
+            ],
+            "1": [
+               { "type": "STATE",              "entity_type": "sensor",        "entity_name": "state", "value_template": "{{ [\"Trocken\", \"Feucht\", \"Nass\"][value_json.v|int] }}", "state_class": "-" }
+            ]
+         },
+         "HmIP-MOD-HO": {
+            "0": [
+               { "type": "UPDATE",     "entity_type": "update",        "entity_name": "update",      "category": "diagnostic" }
+            ],
+            "1": [
+               { "type": "DOOR_STATE",              "entity_type": "sensor",        "entity_name": "state", "value_template": "{{ [\"Geschlossen\", \"Offen\", \"Lüftung\", \"Position\", \"Position\", \"Unbekannt\" ][value_json.v|int] }}", "state_class": "-" },
+               { "type": "DOOR_COMMAND",              "entity_type": "sensor",        "entity_name": "state", "value_template": "{{ [\"Keine Aktion\", \"Öffnen\", \"Stoppen\", \"Schließen\", \"Partiell Öffnen\" ][value_json.v|int] }}", "state_class": "-" }
+            ]
+         },
+         "HmIP-STHO": {
+            "0": [
+               { "type": "LOWBAT",     "entity_type": "binary_sensor", "entity_name": "battery",     "category": "diagnostic", "device_class": "battery", "availability_check": false },
+               { "type": "UPDATE",     "entity_type": "update",        "entity_name": "update",      "category": "diagnostic" }
+            ],
+            "1": [
+               { "type": "HUMIDITY",    "entity_type": "sensor", "entity_name": "humidity",    "availability_check": false, "unit": "%" },
+               { "type": "ACTUAL_TEMPERATURE", "entity_type": "sensor", "entity_name": "temperature", "availability_check": false, "unit": "°C" }
+            ]
+         },
+         "HmIP-STHD": {
+            "0": [
+               { "type": "LOWBAT",     "entity_type": "binary_sensor", "entity_name": "battery",     "category": "diagnostic", "device_class": "battery", "availability_check": false },
+               { "type": "UPDATE",     "entity_type": "update",        "entity_name": "update",      "category": "diagnostic" }
+            ],
+            "1": [
+               { "type": "HUMIDITY",    "entity_type": "sensor", "entity_name": "humidity",    "availability_check": false, "unit": "%" },
+               { "type": "ACTUAL_TEMPERATURE", "entity_type": "sensor", "entity_name": "temperature", "availability_check": false, "unit": "°C" }
             ]
          }
       }
